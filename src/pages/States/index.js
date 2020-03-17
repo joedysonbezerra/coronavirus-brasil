@@ -11,12 +11,6 @@ export default function States() {
   const [loading, setLoading] = useState(false);
   useEffect(async () => {
     setLoading(true);
-    AdMobInterstitial.setAdUnitID("ca-app-pub-2179709203572381/4279634867");
-    AdMobInterstitial.setTestDeviceID("EMULATOR");
-    await AdMobInterstitial.requestAdAsync({
-      servePersonalizedAds: true
-    });
-    await AdMobInterstitial.showAdAsync();
     fetch("https://api.coronaanalytic.com/brazil").then(response => {
       response.json().then(data => {
         const result = data.values.map((state, index) => {
@@ -32,6 +26,12 @@ export default function States() {
         setLoading(false);
       });
     });
+    AdMobInterstitial.setAdUnitID("ca-app-pub-2179709203572381/4279634867");
+    AdMobInterstitial.setTestDeviceID("EMULATOR");
+    await AdMobInterstitial.requestAdAsync({
+      servePersonalizedAds: true
+    });
+    await AdMobInterstitial.showAdAsync();
   }, []);
 
   function keyExtractor(item, index) {

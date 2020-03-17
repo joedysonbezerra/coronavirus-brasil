@@ -10,12 +10,6 @@ import Background from "../../components/Background";
 export default function Country() {
   const [brazil, setBrazil] = useState({});
   useEffect(async () => {
-    AdMobInterstitial.setAdUnitID("ca-app-pub-2179709203572381/4279634867");
-    AdMobInterstitial.setTestDeviceID("EMULATOR");
-    await AdMobInterstitial.requestAdAsync({
-      servePersonalizedAds: true
-    });
-    await AdMobInterstitial.showAdAsync();
     fetch(
       "https://api.apify.com/v2/key-value-stores/TyToNta7jGKkpszMZ/records/LATEST?disableRedirect=true"
     ).then(response => {
@@ -23,6 +17,12 @@ export default function Country() {
         setBrazil({ infected, totalTested, testedNotInfected });
       });
     });
+    AdMobInterstitial.setAdUnitID("ca-app-pub-2179709203572381/4279634867");
+    AdMobInterstitial.setTestDeviceID("EMULATOR");
+    await AdMobInterstitial.requestAdAsync({
+      servePersonalizedAds: true
+    });
+    await AdMobInterstitial.showAdAsync();
   }, []);
   return (
     <Background>
