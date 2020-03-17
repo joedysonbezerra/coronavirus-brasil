@@ -1,28 +1,61 @@
-import React from "react";
-import { StyleSheet, View, SafeAreaView } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, FlatList } from "react-native";
 import Background from "../../components/Background";
 import { FontAwesome } from "@expo/vector-icons";
-import { Header } from "react-native-elements";
-import { ListItem } from "react-native-elements";
-
-const list = [
-  {
-    name: "Amy Farha",
-    avatar_url:
-      "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
-    subtitle: "Vice President"
-  },
-  {
-    name: "Chris Jackson",
-    avatar_url:
-      "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg",
-    subtitle: "Vice Chairman"
-  }
-];
-
-// import { Container } from './styles';
+import { Header, ListItem, Text } from "react-native-elements";
+import stateIcons from "../../assets/stateIcons";
+import { AdMobInterstitial } from "expo-ads-admob";
 
 export default function States() {
+  const [states, setStates] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(async () => {
+    setLoading(true);
+    AdMobInterstitial.setAdUnitID("ca-app-pub-2179709203572381/4279634867");
+    AdMobInterstitial.setTestDeviceID("EMULATOR");
+    await AdMobInterstitial.requestAdAsync({
+      servePersonalizedAds: true
+    });
+    await AdMobInterstitial.showAdAsync();
+    fetch("https://api.coronaanalytic.com/brazil").then(response => {
+      response.json().then(data => {
+        const result = data.values.map((state, index) => {
+          return {
+            id: state.uid,
+            name: state.state,
+            avatar_url: stateIcons[index],
+            subtitle: `Suspeitos:${state.suspects} Confirmados:${state.cases} Óbitos: ${state.deaths}`,
+            value: state.cases
+          };
+        });
+        setStates(result);
+        setLoading(false);
+      });
+    });
+  }, []);
+
+  function keyExtractor(item, index) {
+    return index.toString();
+  }
+
+  function renderState({ item }) {
+    return (
+      <ListItem
+        leftAvatar={{ source: { uri: item.avatar_url } }}
+        title={item.name}
+        subtitle={item.subtitle}
+        bottomDivider
+        badge={{
+          value: item.value,
+          textStyle: {
+            color: "white",
+            fontSize: 14
+          },
+          status: "error"
+        }}
+      />
+    );
+  }
   return (
     <>
       <Header
@@ -31,22 +64,24 @@ export default function States() {
           backgroundColor: "#000"
         }}
         centerComponent={{
-          text: "Total de casos no Brasil",
+          text: "Estados Brasileiros",
           style: { color: "#fff", fontWeight: "bold", fontSize: 16 }
         }}
       />
       <Background>
-        <SafeAreaView style={styles.container}>
-          {list.map((l, i) => (
-            <ListItem
-              key={i}
-              leftAvatar={{ source: { uri: l.avatar_url } }}
-              title={l.name}
-              subtitle={l.subtitle}
-              bottomDivider
-            />
-          ))}
-        </SafeAreaView>
+        {loading ? (
+          <View style={styles.container}>
+            <Text h3 style={{ color: "#fff" }}>
+              Carregando ...
+            </Text>
+          </View>
+        ) : (
+          <FlatList
+            keyExtractor={keyExtractor}
+            data={states}
+            renderItem={renderState}
+          />
+        )}
       </Background>
     </>
   );
@@ -54,7 +89,9 @@ export default function States() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 

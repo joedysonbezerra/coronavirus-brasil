@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Coronavirus_Brasil",
+    "name": "Coronavírus Brasil",
     "slug": "Coronavirus_Brasil",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -23,7 +23,9 @@
     "android": {
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-2179709203572381~5051798664"
-      }
+      },
+      "package": "com.joedysonbezerra.coronavirusbrasil",
+      "versionCode": 1
     }
   }
 }

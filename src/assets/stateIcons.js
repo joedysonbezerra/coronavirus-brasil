@@ -1,0 +1,31 @@
+const stateIcons = [
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498rondonia_brasao.jpg",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848496acre_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848496amazonas_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498roraima_brasao.jpg",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497para_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848496amapa_brasao.jpg",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498tocantins_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497maranhao_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497piaui_brasao.gif",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848496ceara_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498rio_grande_norte_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497paraiba_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497pernambuco_brasao.jpg",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848496alagoas_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498sergipe_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/detalhe.php?foto=753&evento=10",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497minas_gerais_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497espirito_santo_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498rio_janeiro_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498sao_paulo_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497parana_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498santa_catarina_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848498rio_grande_sul_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497mato_grosso_sul_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497mato_grosso_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497goias_brasao.png",
+  "http://www.educadores.diaadia.pr.gov.br/modules/galeria/uploads/10/thumb_1409848497distrito_federal_brasao.png"
+];
+
+export default stateIcons;
